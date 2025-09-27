@@ -1,6 +1,6 @@
 # Python Web Framework Expo
 
-Web frameworks are often compared in theory — with long checklists about scalability, security, and built-in features — but it’s rare to see a comparison from a **developer experience** point of view. I wanted something more hands-on. This project tries to fill that gap by comparing three of the most widely used Python web frameworks: **Django**, **FastAPI**, and **Flask**.
+Web frameworks are often compared in theory - with long checklists about scalability, security, and built-in features - but it’s rare to see a comparison from a **developer experience** point of view. I wanted something more hands-on. This project tries to fill that gap by comparing three of the most widely used Python web frameworks: **Django**, **FastAPI**, and **Flask**.
 
 To explore how they *feel* to build with, I’m creating the same simple web app - a demo IMDB-style clone - in each framework. I will be approaching the builds cross sectionally and iteratively - rather than finishing the entire app in one framework before moving to the next, I’ll add a small feature to all three apps, compare the experience, then move on to the next feature. After each iteration, I will reflect and document what my experience was like. Once the app is complete in all three frameworks, I’ll summarise my overall impressions on how each framework shapes the development journey from a hands-on developer perspective.
 
@@ -33,3 +33,9 @@ The main thing I noticed was that Django (WSGI) and Flask (Werkzeug) come with t
 As usual, Django requested to run initial migrations before I could run the server. Though this is standard, it felt noticaivble heavier in this expo when compared to Flask and FastAPI directly, which had no such equivalents. 
 
 Finally a small curiosity - Flask defaults to port 5000, while Django and FastAPI use 8000.
+
+## Stage 3 – Moving Hello World view from inline HTML to template
+
+Django: felt a little involved - I had to create an app, add a templates directory and HTML file, and link the app’s URL to the central URL config.
+
+FastAPI: felt very lightweight compared to Django - I only had to add a single HTML file to make the change to a template rendering. However, already it seemed like the trade off between flexibility and scalability/robustness was evident, manually handling the HTML file path with the os module. 

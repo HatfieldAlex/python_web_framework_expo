@@ -1,8 +1,11 @@
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi.responses import FileResponse
+import os
 
 app = FastAPI()
 
-@app.get("/", response_class=HTMLResponse)
-def read_root():
-    return "<h1>Hello World!</h1>"
+@app.get("/")
+def home():
+    base_dir = os.path.dirname(__file__)
+    file_path = os.path.join(base_dir, "home.html")
+    return FileResponse(file_path)
