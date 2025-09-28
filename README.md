@@ -24,7 +24,7 @@ The very first thing I this comparison between the frameworks was how different 
 
 Django could be spun up with just a single comman - `django-admin startproject` instantly led to settings, URLs, WSGI/ASGI entry points, all ready to go. By contrast, Flask and FastAPI needed to be setup manually. 
 
-## Stage 2 – Creating a simple “Hello World” page (inline HTML response)
+## Stage 2 - Creating a simple “Hello World” page (inline HTML response)
 
 This stage was just about getting each framework to return a barebones HTML response — no templates, just `<h1>Hello World!</h1>` from the endpoint itself.
 
@@ -34,10 +34,14 @@ As usual, Django requested to run initial migrations before I could run the serv
 
 Finally a small curiosity - Flask defaults to port 5000, while Django and FastAPI use 8000.
 
-## Stage 3 – Moving Hello World view from inline HTML to template
+## Stage 3 - Moving Hello World view from inline HTML to template
 
 Django: felt a little involved - I had to create an app, add a templates directory and HTML file, and link the app’s URL to the central URL config.
 
 FastAPI: felt very lightweight compared to Django - I only had to add a single HTML file to make the change to a template rendering. However, already it seemed like the trade off between flexibility and scalability/robustness was evident, manually handling the HTML file path with the os module. 
 
 Flask: felt as lightweight than FastAPI - I could simply drop a new HTML file in the same directory as the main app file, unlike Django’s stricter app-plus-templates folder structure. Referencing the new HTML file was straightforward. Though Flask’s standard practice encourages using render_template, which would have required setting up a templates directory and made it slightly more involved than FastAPI, send_file worked sufficed for this stage.
+
+## Stage 4 - Adding Data to the HTML dynamically
+
+Django: The built-in templating engine made including dynamic data feel effortless - I simply passed a context dictionary to the view and references the variables in the template which could be done with simple syntax. 
